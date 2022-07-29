@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 function AudioPlayer(props) {
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
-  const audioPlayer = document.getElementById(props.audioName);
-  // const audioPlayer = new Audio(props.audioSrc);
+  const [audioPlayer, setAudioPlayer] = useState(null);
+  const myRef = useRef();
 
   useEffect(() => {
-  console.log('audioPlayer:', audioPlayer);
-
+    setAudioPlayer(document.getElementById(props.audioName));
     if (props.playAudio === true) {
-      audioPlayer.play();
-      console.log('Playing:', props.playAudio);
+      myRef.current.click();
+      myRef.current.play();
     } else {
-      // audioPlayer.pause();
-      console.log('Playing:', props.playAudio);
+      myRef.current.pause();
     }
-  });
-
+  }, [props.audioName, props.playAudio]);
 
   function changeVolume(e) {
     setVolume(e.target.valueAsNumber)
@@ -25,16 +22,10 @@ function AudioPlayer(props) {
     console.log('Volume:', volume);
   }
 
-  // audioPlayer.addEventListener("canplaythrough", () => {
-  //   /* the audio is now playable; play it if permissions allow */
-  //   console.log('Can Play Through');
-  //   audioPlayer.play();
-  // });
-
   return (
     <>
       <h3>{props.audioTitle}</h3>
-      <audio controls src={props.audioSrc} id={props.audioName} muted={muted}>
+      <audio ref={myRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
         Your browser does not support the
         <code>audio</code> element.
       </audio>

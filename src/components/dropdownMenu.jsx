@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
-export default class dropdownMenu extends Component {
+export default class dropdownMenu extends Component {sendData = () => {
+  this.props.parentCallback("arcade86");
+}
   constructor(props) {
     super(props)
     this.state = {
@@ -8,6 +10,7 @@ export default class dropdownMenu extends Component {
       headerTitle: this.props.list[0].title
     }
   }
+
   render() {
     const { isListOpen, headerTitle } = this.state;
     const { list } = this.props;
@@ -33,13 +36,13 @@ export default class dropdownMenu extends Component {
           className="dd-header"
           onClick={toggleList}
         >
-          <div className="dd-header-title">{headerTitle}</div>
+          {headerTitle}
 
         </button>
         {isListOpen && (
           <ul className="dd-list">
             {list.map((item, index) => (
-              <li className="dd-list-item" key={index}>
+              <li className="dd-list__item" key={index}>
                 <button
                   type="button"
                   onClick={() => this.selectItem(item)}
