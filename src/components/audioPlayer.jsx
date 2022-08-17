@@ -7,6 +7,11 @@ function AudioPlayer(props) {
   const myRef = useRef();
 
   useEffect(() => {
+    reloadAudio()
+    console.log(myRef.current);
+  }, [props.audioSrc]);
+
+  useEffect(() => {
     setAudioPlayer(document.getElementById(props.audioName));
     if (props.playAudio === true) {
       myRef.current.click();
@@ -16,10 +21,15 @@ function AudioPlayer(props) {
     }
   }, [props.audioName, props.playAudio]);
 
+
   function changeVolume(e) {
     setVolume(e.target.valueAsNumber)
     audioPlayer.volume = volume;
     console.log('Volume:', volume);
+  }
+
+  function reloadAudio() {
+    myRef.current.play();
   }
 
   return (

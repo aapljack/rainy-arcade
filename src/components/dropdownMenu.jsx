@@ -1,48 +1,53 @@
 import React, { Component } from 'react'
+import FontAwesome from 'react-fontawesome';
 
-export default class dropdownMenu extends Component {sendData = () => {
-  this.props.parentCallback("arcade86");
-}
+export default class dropdownMenu extends Component {
   constructor(props) {
     super(props)
     this.state = {
       isListOpen: false,
-      headerTitle: this.props.list[0].title
+      headerTitle: this.props.title
     }
+  }
+
+  toggleList = () => {
+    this.setState(prevState => ({
+      isListOpen: !prevState.isListOpen
+   }))
+ }
+
+  selectItem = (item) => {
+    const { resetThenSet } = this.props;
+    const { title, id, key } = item;
+
+    this.setState({
+      headerTitle: title,
+      isListOpen: false,
+    }, () => resetThenSet(id, key));
   }
 
   render() {
     const { isListOpen, headerTitle } = this.state;
     const { list } = this.props;
 
-    const toggleList = () => {
-      this.setState({ isListOpen: !isListOpen })
-    }
-
-    const selectItem = (item) => {
-      const { resetThenSet } = this.props;
-      const { title, id, key } = item;
-
-      this.setState({
-        headerTitle: title,
-        isListOpen: false
-      }, () => resetThenSet(id, key));
-    }
-
     return (
       <div className="dd-wrapper">
         <button
           type="button"
           className="dd-header"
-          onClick={toggleList}
+          onClick={this.toggleList}
         >
           {headerTitle}
+          {isListOpen
+            ? <FontAwesome name="angle-up" size="2x" />
+            : <FontAwesome name="angle-down" size="2x" />
+          }
 
         </button>
         {isListOpen && (
           <ul className="dd-list">
-            {list.map((item, index) => (
-              <li className="dd-list__item" key={index}>
+            {list.map((item) => (
+              <li className="dd-list__item" key={item.id}>
                 <button
                   type="button"
                   onClick={() => this.selectItem(item)}
@@ -50,7 +55,7 @@ export default class dropdownMenu extends Component {sendData = () => {
 
                   {item.title}
                   {' '}
-                  {item.selected && <span className="dd-list-item-selected">&#10004;</span>}
+                  {item.selected && <FontAwesome name="check" />}
                 </button>
               </li>
             ))}
