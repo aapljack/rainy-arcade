@@ -17,13 +17,13 @@ export default class dropdownMenu extends Component {
  }
 
   selectItem = (item) => {
-    const { resetThenSet } = this.props;
+    const { updateArcadeList } = this.props;
     const { title, id, key } = item;
 
     this.setState({
       headerTitle: title,
       isListOpen: false,
-    }, () => resetThenSet(id, key));
+    }, () => updateArcadeList(id, key));
   }
 
   render() {

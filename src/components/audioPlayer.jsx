@@ -4,20 +4,20 @@ function AudioPlayer(props) {
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
   const [audioPlayer, setAudioPlayer] = useState(null);
-  const myRef = useRef();
+  const audioPlayerRef = useRef();
 
   useEffect(() => {
     reloadAudio()
-    console.log(myRef.current);
+    console.log(audioPlayerRef.current);
   }, [props.audioSrc]);
 
   useEffect(() => {
     setAudioPlayer(document.getElementById(props.audioName));
     if (props.playAudio === true) {
-      myRef.current.click();
-      myRef.current.play();
+      audioPlayerRef.current.click();
+      audioPlayerRef.current.play();
     } else {
-      myRef.current.pause();
+      audioPlayerRef.current.pause();
     }
   }, [props.audioName, props.playAudio]);
 
@@ -29,13 +29,13 @@ function AudioPlayer(props) {
   }
 
   function reloadAudio() {
-    myRef.current.play();
+    audioPlayerRef.current.play();
   }
 
   return (
     <>
       <h3>{props.audioTitle}</h3>
-      <audio ref={myRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
+      <audio ref={audioPlayerRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
         Your browser does not support the
         <code>audio</code> element.
       </audio>

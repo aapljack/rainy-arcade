@@ -21,12 +21,7 @@ function ArcadeAudio() {
     setPlay(m => !m);
   }
 
-  // function callbackFunction() {
-  //   setArcadeAudioTitle('Robo');
-  //   console.log(`arcadeAudioTitle: ${arcadeAudioTitle}`);
-  // }
-
-  const resetThenSet = (id, key) => {
+  const updateArcadeList = (id, key) => {
     const temp = arcadeList;
 
     temp.forEach((item) => item.selected = false);
@@ -44,7 +39,7 @@ function ArcadeAudio() {
         <button
           onClick={(e) => playAudio()}> {play ? "Stop" : "Play"}</button>
         <h2>Pick an Era</h2>
-        <DropdownMenu title="1981" list={arcadeList} resetThenSet={resetThenSet} />
+        <DropdownMenu title="1981" list={arcadeList} updateArcadeList={updateArcadeList} />
       </div>
       <AudioPlayer
         audioSrc={arcadeAudioSrc}
