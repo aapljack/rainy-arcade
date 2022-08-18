@@ -6,6 +6,8 @@ import arcade83 from '../audio/arcade83.mp3';
 import arcade86 from '../audio/arcade86.mp3';
 import arcade92 from '../audio/arcade92.mp3';
 import rainAudioSrc from '../audio/main-thunder.mp4';
+import rainIcon from '../images/rain.svg';
+import arcadeIcon from '../images/arcade.svg';
 
 function ArcadeAudio() {
   const [play, setPlay] = useState(false);
@@ -41,18 +43,22 @@ function ArcadeAudio() {
         <h2>Pick an Era</h2>
         <DropdownMenu title="1981" list={arcadeList} updateArcadeList={updateArcadeList} />
       </div>
-      <AudioPlayer
-        audioSrc={arcadeAudioSrc}
-        audioTitle="Listen to the arcade:"
-        audioName="arcade"
-        playAudio={play}
-      />
-      <AudioPlayer
-        audioSrc={rainAudioSrc}
-        audioTitle="Listen to the rain:"
-        audioName="rain"
-        playAudio={play}
-      />
+      <div className="audio-grid">
+        <AudioPlayer
+          audioSrc={arcadeAudioSrc}
+          audioTitle="Arcade"
+          audioName="arcade"
+          playAudio={play}
+          icon={arcadeIcon}
+        />
+        <AudioPlayer
+          audioSrc={rainAudioSrc}
+          audioTitle="Rain"
+          audioName="rain"
+          playAudio={play}
+          icon={rainIcon}
+        />
+      </div>
     </>
   )
 };

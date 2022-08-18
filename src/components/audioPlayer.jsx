@@ -33,7 +33,8 @@ function AudioPlayer(props) {
   }
 
   return (
-    <>
+    <div class="audio-player">
+      <img src={props.icon} alt="Rain Icon" class="audio-player__icon" />
       <h3>{props.audioTitle}</h3>
       <audio ref={audioPlayerRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
         Your browser does not support the
@@ -52,7 +53,7 @@ function AudioPlayer(props) {
       <button onClick={() => setMuted(m => !m)}>
         {muted ? "muted" : "unmuted"}
       </button>
-    </>
+    </div>
   )
 }
 

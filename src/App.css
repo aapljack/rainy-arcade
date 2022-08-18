@@ -42,6 +42,20 @@ h1 {
   color: #61dafb;
 }
 
+.audio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(10px, 30%));
+  justify-content: center;
+  width: 100%;
+}
+
+.audio-player__icon {
+  opacity: 80%;
+  /* width: 50%; */
+  max-height: 200px;
+  max-width: 200px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
