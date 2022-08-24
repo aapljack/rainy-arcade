@@ -8,6 +8,7 @@ import arcade92 from '../audio/arcade92.mp3';
 import rainAudioSrc from '../audio/main-thunder.mp4';
 import rainIcon from '../images/rain.svg';
 import arcadeIcon from '../images/arcade.svg';
+import raLogo from '../images/ra_logo.svg';
 
 function ArcadeAudio() {
   const [play, setPlay] = useState(false);
@@ -36,14 +37,14 @@ function ArcadeAudio() {
 
   return (
     <>
-      <div>
-        <h1>Rainy Arcade</h1>
+      <header>
+        <img src={raLogo} alt="Rainy Arcade" className="site-logo" />
         <button
           onClick={(e) => playAudio()}> {play ? "Stop" : "Play"}</button>
         <h2>Pick an Era</h2>
         <DropdownMenu title="1981" list={arcadeList} updateArcadeList={updateArcadeList} />
-      </div>
-      <div className="audio-grid">
+      </header>
+      <main className="audio-grid">
         <AudioPlayer
           audioSrc={arcadeAudioSrc}
           audioTitle="Arcade"
@@ -58,7 +59,8 @@ function ArcadeAudio() {
           playAudio={play}
           icon={rainIcon}
         />
-      </div>
+      </main>
+      <footer></footer>
     </>
   )
 };

@@ -29,12 +29,14 @@ function AudioPlayer(props) {
   }
 
   function reloadAudio() {
-    audioPlayerRef.current.play();
+    if (props.playAudio === true) {
+      audioPlayerRef.current.play();
+    }
   }
 
   return (
-    <div class="audio-player">
-      <img src={props.icon} alt="Rain Icon" class="audio-player__icon" />
+    <div className="audio-player">
+      <img src={props.icon} alt="Rain Icon" className="audio-player__icon" />
       <h3>{props.audioTitle}</h3>
       <audio ref={audioPlayerRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
         Your browser does not support the
