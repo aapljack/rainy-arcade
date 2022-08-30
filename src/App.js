@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import ArcadeAudio from './components/arcadeAudio';
 
 function App() {
