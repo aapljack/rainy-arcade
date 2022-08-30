@@ -39,8 +39,9 @@ function ArcadeAudio() {
     <>
       <header>
         <img src={raLogo} alt="Rainy Arcade" className="site-logo" />
-        <button
-          onClick={(e) => playAudio()}> {play ? "Stop" : "Play"}</button>
+        {/* <button
+          onClick={(e) => playAudio()}> {play ? "Stop" : "Play"}</button> */}
+        <button href="#" className="glossy" onClick={(e) => playAudio()}>{play ? "Stop" : "Play"}</button>
         <h2>Pick an Era</h2>
         <DropdownMenu title="1981" list={arcadeList} updateArcadeList={updateArcadeList} />
       </header>
