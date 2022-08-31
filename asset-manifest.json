@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/rainy-arcade/static/css/main.1b85f31a.css",
-    "main.js": "/rainy-arcade/static/js/main.501a5fbb.js",
-    "static/js/787.6b6ad3d1.chunk.js": "/rainy-arcade/static/js/787.6b6ad3d1.chunk.js",
-    "static/media/arcade86.mp3": "/rainy-arcade/static/media/arcade86.11f285cc435773e959e5.mp3",
-    "static/media/arcade83.mp3": "/rainy-arcade/static/media/arcade83.8c9cf9b44473ccd55a21.mp3",
-    "static/media/arcade92.mp3": "/rainy-arcade/static/media/arcade92.85a712dcaf511f03601e.mp3",
-    "static/media/arcade.mp3": "/rainy-arcade/static/media/arcade.ce95b05c908b589110b9.mp3",
-    "static/media/main-thunder.mp4": "/rainy-arcade/static/media/main-thunder.041867d30fcbbadb0e58.mp4",
-    "static/media/2089141.jpg": "/rainy-arcade/static/media/2089141.a24b11df6879148d941b.jpg",
-    "static/media/ra_logo.svg": "/rainy-arcade/static/media/ra_logo.008607f86831615290ca1b37c62c5bc9.svg",
-    "static/media/Cartridge-Regular.woff2": "/rainy-arcade/static/media/Cartridge-Regular.154259c56324708e424b.woff2",
-    "static/media/arcade.svg": "/rainy-arcade/static/media/arcade.ab050dbe72c536f718c7f59585626050.svg",
-    "static/media/rain.svg": "/rainy-arcade/static/media/rain.5b97b97fb961660aacce52b40ebe6800.svg",
-    "index.html": "/rainy-arcade/index.html",
-    "main.1b85f31a.css.map": "/rainy-arcade/static/css/main.1b85f31a.css.map",
-    "main.501a5fbb.js.map": "/rainy-arcade/static/js/main.501a5fbb.js.map",
-    "787.6b6ad3d1.chunk.js.map": "/rainy-arcade/static/js/787.6b6ad3d1.chunk.js.map"
+    "main.css": "/static/css/main.0b1b331c.css",
+    "main.js": "/static/js/main.748fac4d.js",
+    "static/js/787.6b6ad3d1.chunk.js": "/static/js/787.6b6ad3d1.chunk.js",
+    "static/media/arcade86.mp3": "/static/media/arcade86.11f285cc435773e959e5.mp3",
+    "static/media/arcade83.mp3": "/static/media/arcade83.8c9cf9b44473ccd55a21.mp3",
+    "static/media/arcade92.mp3": "/static/media/arcade92.85a712dcaf511f03601e.mp3",
+    "static/media/arcade.mp3": "/static/media/arcade.ce95b05c908b589110b9.mp3",
+    "static/media/main-thunder.mp4": "/static/media/main-thunder.041867d30fcbbadb0e58.mp4",
+    "static/media/2089141.jpg": "/static/media/2089141.a24b11df6879148d941b.jpg",
+    "static/media/ra_logo.svg": "/static/media/ra_logo.008607f86831615290ca1b37c62c5bc9.svg",
+    "static/media/Cartridge-Regular.woff2": "/static/media/Cartridge-Regular.154259c56324708e424b.woff2",
+    "static/media/arcade.svg": "/static/media/arcade.ab050dbe72c536f718c7f59585626050.svg",
+    "static/media/rain.svg": "/static/media/rain.5b97b97fb961660aacce52b40ebe6800.svg",
+    "index.html": "/index.html",
+    "main.0b1b331c.css.map": "/static/css/main.0b1b331c.css.map",
+    "main.748fac4d.js.map": "/static/js/main.748fac4d.js.map",
+    "787.6b6ad3d1.chunk.js.map": "/static/js/787.6b6ad3d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b85f31a.css",
-    "static/js/main.501a5fbb.js"
+    "static/css/main.0b1b331c.css",
+    "static/js/main.748fac4d.js"
   ]
 }
