@@ -32,7 +32,7 @@ function AudioPlayer(props) {
   return (
     <div className="audio-player">
       <img src={props.icon} alt="Rain Icon" className="audio-player__icon" />
-      <h3>{props.audioTitle}</h3>
+      <h3 className="sound-head">{props.audioTitle}</h3>
       <audio ref={audioPlayerRef} src={props.audioSrc} id={props.audioName} muted={muted} loop>
         Your browser does not support the
         <code>audio</code> element.
@@ -47,8 +47,8 @@ function AudioPlayer(props) {
           changeVolume(event)
         }}
         />
-      <button onClick={() => setMuted(m => !m)}>
-        {muted ? "muted" : "unmuted"}
+      <button onClick={() => setMuted(m => !m)} className="btn-glossy btn-glossy--tertiary">
+        {muted ? "Resume" : "Silence"}
       </button>
     </div>
   )

@@ -13,8 +13,8 @@ export default class dropdownMenu extends Component {
   toggleList = () => {
     this.setState(prevState => ({
       isListOpen: !prevState.isListOpen
-   }))
- }
+    }))
+  }
 
   selectItem = (item) => {
     const { updateArcadeList } = this.props;
@@ -34,13 +34,14 @@ export default class dropdownMenu extends Component {
       <div className="dd-wrapper">
         <button
           type="button"
-          className="dd-header"
+          className="dd-header btn-glossy btn-glossy--secondary"
           onClick={this.toggleList}
         >
           {headerTitle}
+          {' '}
           {isListOpen
-            ? <FontAwesome name="angle-up" size="2x" />
-            : <FontAwesome name="angle-down" size="2x" />
+            ? <FontAwesome name="angle-up" />
+            : <FontAwesome name="angle-down" />
           }
 
         </button>
