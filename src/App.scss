@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
 @font-face {
   font-family: 'cartridge-regular';
@@ -7,14 +7,32 @@
 
 :root {
   --headline-font: 'cartridge-regular', sans-serif;
+  --body-font: 'Source Sans Pro', sans-serif;
   --text-color: #333;
   --white: #fff;
   --dark-purple: #3D1459;
+  --pink: #EE68AF;
 }
 
 body {
+  font-family: var(--body-font);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--headline-font);
   font-feature-settings: "ss01";
+}
+
+a {
+  color: var(--pink);
+  &:hover {
+    text-decoration: none;
+  }
 }
 
 .container {
@@ -24,19 +42,24 @@ body {
   background-color: #282c34;
   color: white;
   display: flex;
-  font-size: calc(10px + 2vmin);
+  font-size: 1.1rem;
   flex-direction: column;
   justify-content: center;
   min-height: 100vh;
+  padding: 0 20px;
   text-align: center;
+  @media screen and (min-width: 576px) {
+    font-size: 1.2rem;
+
+  }
 }
 
 .site-logo {
   display: block;
   margin: 3rem auto 0;
-  max-width: 600px;
-  width: 90vw;
+  max-width: 100%;
   @media screen and (min-width: 576px) {
+    max-width: 600px;
     width: 60vw;
   }
   @media screen and (min-width: 768px) {
@@ -45,14 +68,27 @@ body {
 }
 
 .subhead {
-  font-size: 2.5rem;
+  font-size: 1.8rem;
   font-weight: 400;
   margin: 0 0 1rem;
+  @media screen and (min-width: 576px) {
+    font-size: 2rem;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 2.5rem;
+  }
 }
 
 .sound-head {
+  font-size: 1.6rem;
   font-weight: 400;
   margin: 1rem 0;
+  @media screen and (min-width: 576px) {
+    font-size: 1.8rem;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 2rem;
+  }
 }
 
 .main-control {
@@ -172,7 +208,7 @@ input[type=range] {
   width: 50%;
 }
 input[type=range]:focus {
-  outline: none;
+  // outline: none;
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
@@ -214,4 +250,22 @@ input[type=range]::-moz-range-thumb {
   border-radius: 3px;
   background: #ffffff;
   cursor: pointer;
+}
+
+// Footer
+footer {
+  background-color: rgba(#1b0e24, .5);
+  font-size: .9rem;
+  line-height: 1.4;
+  margin: 20px -20px 0;
+  padding: 10px 20px;
+  @media screen and (min-width: 576px) {
+    border-radius: 10px;
+    font-size: 1rem;
+    margin: 20px 0;
+    width: 80%;
+  }
+  @media screen and (min-width: 992px) {
+    width: 50%;
+  }
 }

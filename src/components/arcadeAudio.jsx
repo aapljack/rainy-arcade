@@ -39,6 +39,7 @@ function ArcadeAudio() {
     <>
       <header>
         <img src={raLogo} alt="Rainy Arcade" className="site-logo" />
+        <p className="description">A simple noise generator to take you back to the rainy days spent in the arcade.</p>
         <button href="#" className="btn-glossy main-control" onClick={(e) => playAudio()}>{play ? "Stop" : "Play"}</button>
         <h2 className="subhead">Pick an Arcade Era</h2>
         <DropdownMenu title="1981" list={arcadeList} updateArcadeList={updateArcadeList} />
@@ -59,7 +60,7 @@ function ArcadeAudio() {
           icon={rainIcon}
         />
       </main>
-      <footer></footer>
+      <footer>Thanks to <a href="http://arcade.hofle.com/" target="_blank" rel="noreferrer">Andy Hofle</a> for allowing the use of the Arcade Ambience audio files. This site also uses the terrific <a href="https://simplebits.com/collections/fonts/products/cartridge-font" target="_blank" rel="noreferrer">Cartridge</a> font created by <a href="https://simplebits.com/" target="_blank" rel="noreferrer">Dan Cedarholm</a>.</footer>
     </>
   )
 };
