@@ -60,7 +60,9 @@ function ArcadeAudio() {
           icon={rainIcon}
         />
       </main>
-      <footer>Thanks to <a href="http://arcade.hofle.com/" target="_blank" rel="noreferrer">Andy Hofle</a> for allowing the use of the Arcade Ambience audio files. This site also uses the terrific <a href="https://simplebits.com/collections/fonts/products/cartridge-font" target="_blank" rel="noreferrer">Cartridge</a> font created by <a href="https://simplebits.com/" target="_blank" rel="noreferrer">Dan Cedarholm</a>.</footer>
+      <footer>
+        <p>This site uses audio files from the <a href="http://arcade.hofle.com/" target="_blank" rel="noreferrer">Arcade Ambience Project</a> created by Andy Hofle and the <a href="https://simplebits.com/collections/fonts/products/cartridge-font" target="_blank" rel="noreferrer">Cartridge</a> font created by <a href="https://simplebits.com/" target="_blank" rel="noreferrer">Dan Cederholm</a>.</p>
+      </footer>
     </>
   )
 };
