@@ -3,30 +3,21 @@ import React, { useState, useEffect, useRef } from 'react';
 function AudioPlayer(props) {
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
-  const [audioPlayer, setAudioPlayer] = useState(null);
   const audioPlayerRef = useRef();
 
-  useEffect(() => {
-    if (props.playAudio === true) {
-      audioPlayerRef.current.play();
-    }
-  });
 
   useEffect(() => {
-    setAudioPlayer(document.getElementById(props.audioName));
     if (props.playAudio === true) {
       audioPlayerRef.current.click();
       audioPlayerRef.current.play();
     } else {
       audioPlayerRef.current.pause();
     }
-  }, [props.audioName, props.playAudio]);
-
+  });
 
   function changeVolume(e) {
     setVolume(e.target.valueAsNumber)
-    audioPlayer.volume = volume;
-    console.log('Volume:', volume);
+    audioPlayerRef.current.volume = volume;
   }
 
   return (
