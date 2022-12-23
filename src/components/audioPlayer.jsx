@@ -4,21 +4,57 @@ function AudioPlayer(props) {
   const [volume, setVolume] = useState(1);
   const [muted, setMuted] = useState(false);
   const audioPlayerRef = useRef();
+  const [track, setTrack] = useState(null);
 
 
+
+  const AudioContext = window.AudioContext || window.webkitAudioContext;
+  const audioContext = new AudioContext();
   useEffect(() => {
-    if (props.playAudio === true) {
-      audioPlayerRef.current.click();
-      audioPlayerRef.current.play();
-    } else {
-      audioPlayerRef.current.pause();
+    if (window !== undefined) {
+      const src = audioContext.createMediaElementSource(audioPlayerRef.current);
+      setTrack(src);
+      console.log('Create audio context.');
     }
-  });
+    if (props.playAudio === true) {
+      audioContext.play();
+      // audioPlayerRef.current.click();
+      // audioPlayerRef.current.play();
+    } else {
+      audioContext.resume();
+      // audioPlayerRef.current.pause();
+    }
+  }, []);
 
-  function changeVolume(e) {
-    setVolume(e.target.valueAsNumber)
-    audioPlayerRef.current.volume = volume;
-  }
+  function playCurrentAudio(e) {
+    audioContext.resume();
+    audioPlayerRef.current.play();
+    console.log('audioContext', audioContext);
+    console.log('track', track);
+    console.log(props.playAudio);
+    if(audioContext.state === 'suspended') {
+      console.log('audioContext.resume()');
+    }
+    if (props.playAudio === false) {
+    // if track is playing pause it
+    } else if (props.playAudio === 'true') {
+        audioPlayerRef.current.pause();
+        console.log('audioPlayerRef.current.pause()');
+      }
+    }
+
+
+
+    function changeVolume(e) {
+      setVolume(e.target.valueAsNumber)
+      audioPlayerRef.current.volume = volume;
+      console.log("volume");
+    }
+
+        if(track !== null) {
+      console.log('track', track);
+      // track.connect(audioContext.destination);
+    }
 
   return (
     <div className="audio-player">
@@ -41,6 +77,7 @@ function AudioPlayer(props) {
       <button onClick={() => setMuted(m => !m)} className="btn-glossy btn-glossy--tertiary">
         {muted ? "Resume" : "Silence"}
       </button>
+      <button onClick={() => playCurrentAudio()}>Play</button>
     </div>
   )
 }

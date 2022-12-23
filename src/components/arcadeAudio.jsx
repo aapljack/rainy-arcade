@@ -52,13 +52,13 @@ function ArcadeAudio() {
           playAudio={play}
           icon={arcadeIcon}
         />
-        <AudioPlayer
+        {/* <AudioPlayer
           audioSrc={rainAudioSrc}
           audioTitle="Rain"
           audioName="rain"
           playAudio={play}
           icon={rainIcon}
-        />
+        /> */}
       </main>
       <footer>
         <p>This site uses audio files from the <a href="http://arcade.hofle.com/" target="_blank" rel="noreferrer">Arcade Ambience Project</a> created by Andy Hofle and the <a href="https://simplebits.com/collections/fonts/products/cartridge-font" target="_blank" rel="noreferrer">Cartridge</a> font created by <a href="https://simplebits.com/" target="_blank" rel="noreferrer">Dan Cederholm</a>.</p>
