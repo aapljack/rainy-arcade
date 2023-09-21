@@ -20,6 +20,20 @@ function AudioPlayer(props) {
     audioPlayerRef.current.volume = volume;
   }
 
+  // iOS detection from: http://stackoverflow.com/a/9039885/177710
+  function iOS() {
+    return [
+      'iPad Simulator',
+      'iPhone Simulator',
+      'iPod Simulator',
+      'iPad',
+      'iPhone',
+      'iPod'
+    ].includes(navigator.platform)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
+  }
+
   return (
     <div className="audio-player">
       <img src={props.icon} alt="Rain Icon" className="audio-player__icon" />
@@ -29,11 +43,12 @@ function AudioPlayer(props) {
         <code>audio</code> element.
       </audio>
       <input
+        className={iOS() === true ? "hide" : ""}
         type="range"
         min={0}
         max={1}
         step={0.02}
-        value={volume}
+        value={iOS() === true && props.audioName === "arcade" ? 0.5 : volume}
         onChange={event => {
           changeVolume(event)
         }}

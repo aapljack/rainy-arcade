@@ -127,8 +127,10 @@ a {
   font-size: 1.2rem;
   font-weight: 400;
   text-transform: capitalize;
-  margin-top: 1.5rem;
   padding: 5px 15px;
+  @media screen and (min-width: 576px) {
+    margin-top: 1.5rem;
+  }
 }
 
 .audio-grid {
@@ -201,6 +203,10 @@ a {
 }
 
 // Range Slider
+
+.hide {
+  display: none;
+}
 
 input[type=range] {
   -webkit-appearance: none;
