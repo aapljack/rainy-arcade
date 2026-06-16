@@ -1,19 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-// iOS detection from: http://stackoverflow.com/a/9039885/177710
-function iOS() {
-  return [
-    'iPad Simulator',
-    'iPhone Simulator',
-    'iPod Simulator',
-    'iPad',
-    'iPhone',
-    'iPod'
-  ].includes(navigator.platform)
-  // iPad on iOS 13 detection
-  || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
-}
-
 function AudioPlayer(props) {
   const initialVolume = 1;
   const [volume, setVolume] = useState(initialVolume);
