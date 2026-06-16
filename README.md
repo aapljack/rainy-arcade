@@ -74,15 +74,27 @@ Outputs an optimized bundle to the `build/` directory.
 
 ## Deployment
 
-The site is hosted on GitHub Pages and served from the custom domain in `CNAME`. The `gh-pages` package handles publishing.
+The site is hosted on GitHub Pages and served from the custom domain in `CNAME`.
+
+### Automatic deploys (default)
+
+The `deploy` GitHub Actions workflow (`.github/workflows/deploy.yml`) runs on every push to `main`. It builds the app and publishes `build/` to the `gh-pages` branch via [`peaceiris/actions-gh-pages`](https://github.com/peaceiris/actions-gh-pages), preserving the `rainyarca.de` CNAME. The workflow can also be triggered by hand from the Actions tab via `workflow_dispatch` — useful for re-running a deploy without pushing a commit.
+
+### Manual deploys (fallback)
+
+The `gh-pages` npm package is still wired up for local deploys:
 
 ```
 npm run deploy
 ```
 
-This runs `npm run build` first (via the `predeploy` script), then pushes the contents of `build/` to the `gh-pages` branch. GitHub Pages serves that branch at [rainyarca.de](https://rainyarca.de).
+This runs `npm run build` first (via the `predeploy` script), then pushes `build/` to the `gh-pages` branch directly from your machine. Handy if Actions is down or for ad-hoc deploys from a branch other than `main`.
 
-The `homepage` field in `package.json` is set to the production URL so asset paths resolve correctly.
+The `homepage` field in `package.json` is set to the production URL so asset paths resolve correctly under either path.
+
+## Continuous integration
+
+The `CI` workflow (`.github/workflows/ci.yml`) runs on every pull request targeting `main`. It installs deps with `npm ci`, builds with `npm run build`, and runs the Jest suite once. Build failures or failing tests block the PR before merge.
 
 ## Credits
 
