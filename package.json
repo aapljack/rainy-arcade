@@ -3,6 +3,7 @@
   "homepage": "https://rainyarca.de",
   "version": "0.1.0",
   "private": true,
+  "packageManager": "npm@10.9.2",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.1.1",
@@ -10,12 +11,12 @@
     "gh-pages": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-fontawesome": "^1.7.1",
     "react-scripts": "5.0.1",
     "sass": "^1.54.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "preinstall": "npx only-allow npm",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
