@@ -15,6 +15,7 @@
 }
 
 body {
+  background-color: #110221;
   font-family: var(--body-font);
 }
 
@@ -37,9 +38,8 @@ a {
 
 .container {
   align-items: center;
-  background: url("./images/2089141.jpg") no-repeat center center;
+  background: #110221 url("./images/2089141.jpg") no-repeat center center;
   background-size: cover;
-  background-color: #282c34;
   color: white;
   display: flex;
   font-size: 1.1rem;
@@ -106,7 +106,6 @@ a {
   font-family: var(--headline-font);
   font-size: 1.5rem;
   padding: 15px;
-  text-shadow: 0px 1px 0px rgba(0, 0, 0,0.3);
   text-transform: uppercase;
   text-shadow: 1px 2px 0px #333;
   transition: box-shadow 200ms;
@@ -126,11 +125,9 @@ a {
   background-image: linear-gradient(rgba(255,255,255,0.3) 50%, rgba(255,255,255,0.0) 51%), linear-gradient(#D92588, darken(#D92588, 20%));
   font-size: 1.2rem;
   font-weight: 400;
-  text-transform: capitalize;
+  margin-top: 1.5rem;
   padding: 5px 15px;
-  @media screen and (min-width: 576px) {
-    margin-top: 1.5rem;
-  }
+  text-transform: capitalize;
 }
 
 .audio-grid {
@@ -165,6 +162,17 @@ a {
   position: relative;
 }
 
+.dd-icon {
+  filter: drop-shadow(1px 2px 0 #333333);
+  height: 1em;
+  vertical-align: middle;
+  width: 1em;
+}
+
+.dd-icon--flat {
+  filter: none;
+}
+
 .dd-list {
   background: rgb(255,255,255,.8);
   border-radius: 10px;
@@ -196,9 +204,14 @@ a {
     }
   }
   button {
+    align-items: center;
     color: var(--dark-purple);
+    display: flex;
     font-family: var(--headline-font);
     font-size: 1rem;
+  }
+  .dd-icon {
+    margin-left: 5px;
   }
 }
 

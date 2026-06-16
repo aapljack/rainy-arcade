@@ -15,7 +15,7 @@ function iOS() {
 }
 
 function AudioPlayer(props) {
-  const initialVolume = iOS() && props.audioName === "arcade" ? 0.5 : 1;
+  const initialVolume = 1;
   const [volume, setVolume] = useState(initialVolume);
   const [muted, setMuted] = useState(false);
   const audioPlayerRef = useRef();
