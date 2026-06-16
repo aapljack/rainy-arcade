@@ -10,8 +10,12 @@ The app is a single-page React app with no backend. It is deployed as a static s
 
 ### Audio playback
 
-- Desktop browsers use the native `<audio>` element with its `volume` property bound to each slider.
-- iOS and other mobile browsers ignore the HTML `volume` property, so the app routes audio through a Web Audio `GainNode` to control volume. Device detection picks the right path at runtime.
+Each `<audio>` element is routed through a Web Audio `GainNode` and the slider drives `gain.value` instead of the element's `volume` property. iOS Safari ignores `HTMLMediaElement.volume`, so the gain-node path is what makes volume control work on mobile — and it works identically on desktop, so there's no runtime device detection.
+
+A few constraints the implementation has to honor:
+
+- `createMediaElementSource()` can only be called once per element (per spec), so the wiring runs inside an init guard to survive React StrictMode's double-invoked effects in development.
+- iOS suspends the `AudioContext` until a user gesture resumes it, so the play handler calls `audioContext.resume()` before `.play()`.
 
 ### Project layout
 
